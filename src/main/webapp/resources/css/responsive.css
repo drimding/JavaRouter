@@ -1,0 +1,21 @@
+@media (max-width: 650px) {
+	header h1 {
+		clear: both;
+	}
+	#topNavbar a {
+		padding: 5px 10px;
+		width: auto;
+	}
+	aside {
+		width: 45%;
+	}
+	section {
+		width: 53%;
+	}	
+        #table_routers td  {
+    width: 16.6%;
+    
+    padding: 0 5px;
+    
+}
+	}

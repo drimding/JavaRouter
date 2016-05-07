@@ -1,0 +1,38 @@
+.submit:hover{
+	background:  url('../img/search2.png') no-repeat; 
+	background-position: right 0px bottom 1px;
+
+}
+
+#leftNavbar a:hover, #topNavbar a:hover{
+	-webkit-transform: scale(1.2);
+	transform: scale(1.2);
+	background: #FF8C00;
+        color: #fff;
+	 
+}
+.bigbutton a {
+	transition-property: background, transform, webkit-transform;
+	transition-duration: 250ms;
+	transition-timing-function:linear;
+}
+
+
+.rAnim1 {transform:translateX(50px); transition: 1s ease; }
+.rAnim2 {transform:translateX(60px); transition: 1s ease; }
+.rAnim3 {transform:translateX(70px); transition: 1s ease;}
+.rAnim4 {transform:translateX(80px); transition: 1s ease;}
+.rAnim5 {transform:translateX(90px); transition: 1s ease;}
+.rAnim6 {transform:translateX(100px); transition: 1s ease;}
+.rAnim7 {transform:translateX(110px); transition: 1s ease;}
+.rAnim8 {transform:translateX(120px); transition: 1s ease;}
+.rAnim9 {transform:translateX(130px); transition: 1s ease;}
+.rAnim10 {transform:translateX(140px); transition: 1s ease;}
+.rAnim11 {transform:translateX(150px); transition: 1s ease;}
+.rAnim12 {transform:translateX(160px); transition: 1s ease;}
+.rAnim13 {transform:translateX(170px); transition: 1s ease;}
+
+section ul li a:hover, aside ul li a:hover{
+	background: #FF8C00;
+	
+}
