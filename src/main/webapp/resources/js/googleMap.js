@@ -122,8 +122,10 @@ function clerroute(){
 
 
 function sendAjaxAPI(msg,idResult,processing) {
+
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
+
    if (xhttp.readyState === 4 && xhttp.status === 200) {
       var result = JSON.parse(xhttp.responseText);
       var waypRoad=[], waypStop=[];
@@ -139,8 +141,11 @@ function sendAjaxAPI(msg,idResult,processing) {
      
  } 
  };
+    var token = $("meta[id='csrf']").attr("content");
+    var header = $("meta[id='csrf_header']").attr("content");
 
-xhttp.open("POST", window.location.pathname+'createRouteOnMap', true);
+xhttp.open("POST", window.location.pathname+'createRouteOnMap', true)
+xhttp.setRequestHeader(header, token);
 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 xhttp.send(msg);
 }

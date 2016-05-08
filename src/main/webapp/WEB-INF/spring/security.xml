@@ -11,21 +11,26 @@
     <http use-expressions="true">
         <!-- pattern - шаблон URL`ок, які будуть перехоплюватись; access - метод,
             яким вони будуть перевірятись -->
-        <intercept-url pattern="/" access="permitAll" />
+        <intercept-url pattern="/" access="isAuthenticated()" />
+        <intercept-url pattern="/createRouteOnMap" access="permitAll" />
         <intercept-url pattern="/show*" access="isAuthenticated()" />
         <intercept-url pattern="/create*" access="hasRole('ADMIN')" />
+        <intercept-url pattern="/login*" access="isAnonymous()" />
 
         <!-- Деактивує csrf фільтр -->
-        <csrf disabled="true" />
+        <csrf disabled="false" />
 
         <!-- Описує процес логінування (login-page - URL сторінки логінування;
             login-processing-url - URL, яка здійснює логінування -->
-        <form-login />
+
 
         <!-- Описує Logout процес (logout-url - URL, яка здійснює вихід користувача
             з сесії (якщо csrf не відключений, то повинен бути HTTP POST METHOD), logout-success-url
             - URL, по якій перейде програма після здійснення виходу -->
-        <logout logout-url="/logout" logout-success-url="/" />
+        <logout logout-url="/logout" logout-success-url="/loginpage" />
+
+        <!-- підключаємо каcтомну сторінку логування-->
+        <form-login login-page="/loginpage" login-processing-url="/login" authentication-failure-url="/loginpage?auth=fail"/>
     </http>
 
     <!-- Описує користувачів системи. -->
@@ -39,4 +44,5 @@
 
         </authentication-provider>
     </authentication-manager>
+    <beans:import resource="classpath:/META-INF/appContext.xml" />
 </beans:beans>

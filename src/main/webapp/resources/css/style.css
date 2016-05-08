@@ -107,11 +107,19 @@ header  h1 {
 	
 }
 
+.logout {
+    padding: 10px 10px 0 0;
+    min-width: 20%;
+    max-height: 80px;
+    float: right;
+
+}
 .search {
-	padding-top:30px;
+
 	min-width: 20%;
 	max-height: 80px;
 	float: right;
+    clear:both;
 	
 }
 .search .input  {

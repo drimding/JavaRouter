@@ -1,6 +1,7 @@
 package org.dreamcatcher.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,18 +28,32 @@ public class Controllers {
 	private RouteWaypointsService waypointService;
 	@Autowired
 	private RouteStopsService routeStopsService;
-	
-	@RequestMapping(value ="/")
+
+
+	@RequestMapping(value ="/", method = RequestMethod.GET)
 	public String home(Model model){
-		
 		model.addAttribute("tramways", routesService.getRoutesByTypeId(1));
 		model.addAttribute("trolleybus", routesService.getRoutesByTypeId(2));
 		model.addAttribute("buses", routesService.getRoutesByTypeName("buses"));
 		return "home";
 	}
-	
+    @RequestMapping(value = "/loginpage", method = RequestMethod.GET)
+    public String loginPage(){
+        return "loginpage";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(){
+        return "loginpage";
+    }
+
+    @RequestMapping(value = "/logoutPage", method = RequestMethod.GET)
+    public String logoutPage() {
+        return "logoutPage";
+    }
+
+
 	@RequestMapping(value ="/createRouteOnMap", method = RequestMethod.POST)
-	
 	@JsonView(Views.Public.class)
 	public @ResponseBody HashMap ajaxTest(@RequestParam int routesId) {
 		HashMap objMap = new HashMap();
